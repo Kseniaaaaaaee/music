@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Жанры vepsrb{% endblock title %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Название</th>
+                <th>Название на англ.</th>
+                <th>Описание</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for g in gen %}
+            <tr>
+                <td>{{g.id}}</td>
+                <td>{{g.name_ru}}</td>
+                <td>{{g.name_en}}</td>
+                <td>{{g.description}}</td>
+                <td><a href="/editgenre/{{g.id}}">Редактировать</a></td>
+                <td><a href="/deletegenre/{{g.id}}">Удалить</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/add_gen">Добавить жанр</a>
+{% endblock content %}
